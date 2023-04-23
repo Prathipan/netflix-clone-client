@@ -1,0 +1,1 @@
+export const api = "https://netflix-clone-server-zkby.onrender.com/api"
