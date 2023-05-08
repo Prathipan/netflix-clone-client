@@ -12,8 +12,18 @@
     position: relative;
     z-index: 999;
 }
+.logo-container{
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+}
 .main-logo{
     height: 40px;
+}
+.logo-txt{
+    color: red;
+    font-size: 24px;
+    font-weight: 600
 }
 .signIn-button{
     background-color: red;

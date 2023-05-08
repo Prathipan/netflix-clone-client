@@ -3,13 +3,14 @@ import "./login.css";
 import { Link } from "react-router-dom";
 import { login } from "../../authContext/apiCalls";
 import { AuthContext } from "../../authContext/AuthContext";
+import LOGO from "../../images/logo-eagle.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const emailRef = useRef();
 
-  const {dispatch} = useContext(AuthContext)
+  const { dispatch } = useContext(AuthContext);
 
   const handleStart = (e) => {
     e.preventDefault();
@@ -19,20 +20,19 @@ const Login = () => {
   const handleFinish = (e) => {
     e.preventDefault();
     try {
-     login({email,password},dispatch);
+      login({ email, password }, dispatch);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
   return (
     <div className="register">
       <div className="register-wrapper">
-        <img
-          className="main-logo"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
-          alt=""
-        />
+        <div className="logo-container">
+          <img className="main-logo" src={LOGO} alt="" />
+          <span className="logo-txt">Videoflix</span>
+        </div>
         <Link to="/register">
           <button className="signIn-button">Sign Up</button>
         </Link>
@@ -52,7 +52,11 @@ const Login = () => {
           </div>
         ) : (
           <form className="input">
-            <input type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)} />
+            <input
+              type="password"
+              placeholder="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
             <button className="register-button" onClick={handleFinish}>
               Start
             </button>
